@@ -3,10 +3,13 @@ package ResumeFodder
 import (
 	"appengine"
 	"fmt"
+	"gitlab.com/steve-perkins/ResumeFodder/command"
 	"gitlab.com/steve-perkins/ResumeFodder/data"
 	"html/template"
+	"io/ioutil"
 	"net/http"
 	"path"
+	"path/filepath"
 )
 
 func init() {
@@ -28,13 +31,14 @@ func testHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func initHandler(w http.ResponseWriter, r *http.Request) {
-	json, err := data.ToJsonString(data.NewResumeData())
+	json, err := command.InitResumeJson()
 	if err != nil {
 		w.Header().Set("Content-Type", "text/html")
 		w.Write([]byte(err.Error()))
 		return
 	}
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "application/octet-stream")
+	w.Header().Set("Content-Disposition", "attachment;filename=\"resume.json\"")
 	w.Write([]byte(json))
 }
 
@@ -42,8 +46,8 @@ func generateHandler(w http.ResponseWriter, r *http.Request) {
 	// Update JSON-Resume data file
 	const MAX_UPLOAD_BYTES = 100000
 	file, _, _ := r.FormFile("file")
-	buffer := make([]byte, MAX_UPLOAD_BYTES)
-	bytesRead, _ := file.Read(buffer)
+	uploadBuffer := make([]byte, MAX_UPLOAD_BYTES)
+	bytesRead, _ := file.Read(uploadBuffer)
 	ctx := appengine.NewContext(r)
 	if bytesRead >= MAX_UPLOAD_BYTES {
 		ctx.Errorf("JSON-Resume upload exceeds the %d byte cap\n", MAX_UPLOAD_BYTES)
@@ -52,10 +56,10 @@ func generateHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	ctx.Infof("Uploaded %d bytes of JSON-Resume data\n", bytesRead)
-	contents := string(buffer[:bytesRead])
+	contents := string(uploadBuffer[:bytesRead])
 
 	// Parse the (hopefully) JSON
-	_, err := data.FromJsonString(contents)
+	resumeData, err := data.FromJsonString(contents)
 	if err != nil {
 		ctx.Errorf("An error occurred parsing the uploaded file: %s\n", err)
 		w.Header().Set("Content-Type", "text/html")
@@ -63,10 +67,32 @@ func generateHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Generate the resume
-	// TODO: Refactor the base ResumeFodder project, to provide an export method that works with in-memory strings rather than the filesystem
+	// Load the selected template
+	templateParam := r.Form.Get("template")
+	if templateParam != "plain" && templateParam != "iconic" && templateParam != "refined" {
+		ctx.Errorf("An unrecognized template was selected: %s\n", templateParam)
+		w.Header().Set("Content-Type", "text/html")
+		w.Write([]byte("Cannot load the template\n"))
+		return
+	}
+	templateBytes, err := ioutil.ReadFile(filepath.Join("templates", templateParam+".xml"))
+	if err != nil {
+		ctx.Errorf("An error occurred loading the template file: %s\n", err)
+		w.Header().Set("Content-Type", "text/html")
+		w.Write([]byte("Cannot load the template\n"))
+		return
+	}
+	templateString := string(templateBytes)
 
-	// TODO: Remove this filler
-	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte(contents))
+	// Generate the resume
+	exportBuffer, err := command.ExportResume(resumeData, templateString)
+	if err != nil {
+		ctx.Errorf("An error occurred exporting the resume: %s\n", err)
+		w.Header().Set("Content-Type", "text/html")
+		w.Write([]byte("An error occurred exporting the resume\n"))
+		return
+	}
+	w.Header().Set("Content-Type", "application/octet-stream")
+	w.Header().Set("Content-Disposition", "attachment;filename=\"resume.doc\"")
+	w.Write(exportBuffer.Bytes())
 }
