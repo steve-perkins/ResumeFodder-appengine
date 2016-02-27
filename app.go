@@ -75,6 +75,7 @@ func generateHandler(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Cannot load the template\n"))
 		return
 	}
+	ctx.Infof("Exporting a resume with template: %s\n", templateParam)
 	templateBytes, err := ioutil.ReadFile(filepath.Join("templates", templateParam+".xml"))
 	if err != nil {
 		ctx.Errorf("An error occurred loading the template file: %s\n", err)
