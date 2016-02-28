@@ -27,7 +27,16 @@
 
     <!-- Custom Fonts from Google -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-28600243-2', 'auto');
+        ga('send', 'pageview');
+    </script>
 </head>
 
 <body>
@@ -73,16 +82,6 @@
 		            <li>
                         <a href="#">Source</a>
                     </li>			
-					<!--
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="about-us">
-							<li><a href="#">Engage</a></li>
-							<li><a href="#">Pontificate</a></li>
-							<li><a href="#">Synergize</a></li>
-						</ul>
-					</li>
-					-->
                     <li>
                         <a href="https://gitlab.com/steve-perkins/ResumeFodder/issues">Contact</a>
                     </li>
@@ -113,11 +112,11 @@
                 <div class="col-sm-6">
                 	<h2 class="section-header">A Standard Format for Resume Content</h2>
                     <p class="lead text-muted">
-                        The <a href="http://jsonresume.org/">JSON Resume format</a> is an open-source standard, for
-                        capturing your resume content apart from any visual style.
+                        The <a href="http://jsonresume.org/">JSON Resume format</a> is an open standard, for storing
+                        resume content separately from any visual style.
                     </p>
                 	<p class="lead text-muted">
-                        Store your resume data in source control if you like, and track it over time.  Even create
+                        Place your resume data in source control if you like, and track it over time.  Even create
                         branches, when you need resume content that is custom-tailored for specific job opportunities.
                     </p>
                 	<a href="#" class="btn btn-primary btn-lg">Create a JSON Resume File</a>
@@ -134,8 +133,8 @@
                 <div class="col-sm-6">
                 	<h2 class="section-header">Your Choice of Resume Style</h2>
                     <p class="lead text-light">
-                        Apply a template to your resume content, to automatically generate a professional looking
-                        resume in Microsoft Word format.
+                        Apply a template to your content, to automatically generate a professional looking resume in
+                        Microsoft Word format.
                     </p>
                 	<p class="lead text-light">
                         You can use Word or LibreOffice to convert your resume into PDF or HTML format if you wish.
@@ -210,7 +209,7 @@
                 <div class="col-sm-6">
                     <h2 class="section-header">Open Source and Private</h2>
                     <p class="lead text-muted">
-                        ResumeFodder is open-source under the MIT License, hosted on GitLab with a GitHub mirror.
+                        ResumeFodder is open-source under the MIT License, and hosted on GitLab with a GitHub mirror.
                         Contributions are welcomed, especially for creating new templates (no coding skills required!).
                     </p>
                     <p class="lead text-muted">
