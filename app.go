@@ -13,6 +13,7 @@ import (
 )
 
 func init() {
+	http.Handle("/", http.FileServer(http.Dir("static")))
 	http.HandleFunc("/test", testHandler)
 	http.HandleFunc("/init", initHandler)
 	http.HandleFunc("/generate", generateHandler)
