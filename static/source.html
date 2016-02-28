@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<!-- Images by various sources under the Creative Commons CC0 license and/or the Creative Commons Zero license. -->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>ResumeFodder</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom Fonts from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-28600243-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Logo and responsive toggle -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <span class="glyphicon glyphicon-duplicate"></span>
+                ResumeFodder
+            </a>
+        </div>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="generate.html">Use Online</a>
+                </li>
+                <li>
+                    <a href="download.html">Download</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="about-us">
+                        <li><a href="docs/jsonresume.html">The JSON Resume Format</a></li>
+                        <li><a href="docs/templates.html">Template Gallery</a></li>
+                        <li><a href="docs/formats.html">File Formats</a></li>
+                        <li><a href="docs/create.html">Creating Templates</a></li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="source.html">Source</a>
+                </li>
+                <li>
+                    <a href="https://gitlab.com/steve-perkins/ResumeFodder/issues">Contact</a>
+                </li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+</nav>
+
+<!-- Content -->
+<section class="page-content-top">
+    <div class="container">
+        <h2 class="section-header">Source Layout</h2>
+        <p class="lead text-muted">
+            The source code for ResumeFodder is split among four git repositories:
+        </p>
+        <p>
+            <img src="images/repository-diagram.png"/>
+        </p>
+    </div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="page-content">
+    <div class="container">
+        <h2 class="section-header">Git Repositories</h2>
+        <p class="lead text-muted">
+            The primary host for ResumeFodder source is on GitLab, although GitHub mirrors are also available:
+        </p>
+        <h3>Core</h3>
+        <ul>
+            <li>
+                <span style="font-weight: bold;"><span style="text-decoration: underline;">GitLab</span>: </span>
+                <a href="https://gitlab.com/steve-perkins/ResumeFodder">https://gitlab.com/steve-perkins/ResumeFodder.git</a>
+            </li>
+            <li>
+                <span style="font-weight: bold;"><span style="text-decoration: underline;">GitHub mirror</span>: </span>
+                <a href="https://github.com/steve-perkins/ResumeFodder">https://github.com/steve-perkins/ResumeFodder.git</a>
+            </li>
+        </ul>
+        <h3>Command-line Front-end</h3>
+        <ul>
+            <li>
+                <span style="font-weight: bold;"><span style="text-decoration: underline;">GitLab</span>: </span>
+                <a href="https://gitlab.com/steve-perkins/ResumeFodder-cli">https://gitlab.com/steve-perkins/ResumeFodder-cli.git</a>
+            </li>
+            <li>
+                <span style="font-weight: bold;"><span style="text-decoration: underline;">GitHub mirror</span>: </span>
+                <a href="https://github.com/steve-perkins/ResumeFodder-cli">https://github.com/steve-perkins/ResumeFodder-cli.git</a>
+            </li>
+        </ul>
+        <h3>Online Front-end</h3>
+        <ul>
+            <li>
+                <span style="font-weight: bold;"><span style="text-decoration: underline;">GitLab</span>: </span>
+                <a href="https://gitlab.com/steve-perkins/ResumeFodder-appengine">https://gitlab.com/steve-perkins/ResumeFodder-appengine.git</a>
+            </li>
+            <li>
+                <span style="font-weight: bold;"><span style="text-decoration: underline;">GitHub mirror</span>: </span>
+                <a href="https://github.com/steve-perkins/ResumeFodder-appengine">https://github.com/steve-perkins/ResumeFodder-appengine.git</a>
+            </li>
+        </ul>
+        <h3>Templates</h3>
+        <ul>
+            <li>
+                <span style="font-weight: bold;"><span style="text-decoration: underline;">GitLab</span>: </span>
+                <a href="https://gitlab.com/steve-perkins/ResumeFodder-templates">https://gitlab.com/steve-perkins/ResumeFodder-templates.git</a>
+            </li>
+        <li>
+            <span style="font-weight: bold;"><span style="text-decoration: underline;">GitHub mirror</span>: </span>
+            <a href="https://github.com/steve-perkins/ResumeFodder-templates">https://github.com/steve-perkins/ResumeFodder-templates.git</a>
+        </li>
+        </ul>
+    </div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="page-content">
+    <div class="container">
+        <h2 class="section-header">Cloning the Repositories</h2>
+        <p class="lead text-muted">
+            To create new templates, the <code>ResumeFodder-templates</code> repository is the only one you need to
+            clone.  See the "Creating Templates" section of the documentation for more detail.
+        </p>
+        <p class="lead text-muted">
+            ResumeFodder is written in the <a href="https://golang.org/">Go programming language</a>, and its
+            application repositories are meant to be cloned via the <a href="https://golang.org/cmd/go/"><code>go</code></a>
+            tool.  To work with the ResumeFodder command-line front-end, set the <code>GOPATH</code> environment
+            variable to some workspace directory on your filesystem, and run these commands:
+        </p>
+        <p>
+            <code># Clone the git repo into your workspace<br/>
+                go get gitlab.com/steve-perkins/ResumeFodder-cli<br/><br/>
+
+                # Import the templates submodule<br/>
+                cd $GOPATH/gitlab.com/steve-perkins/ResumeFodder-cli<br/>
+                git submodule init<br/>
+                git submodule update<br/><br/>
+
+                # Compile.  You can name the execuable whatever you like (e.g. "ResumeFodder.exe" on Windows)<br/>
+                go build -o ResumeFodder</code>
+        </p>
+    </div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="page-content">
+    <div class="container">
+        <h2 class="section-header">Contributing</h2>
+        <p class="lead text-muted">
+            ResumeFodder is essentially "feature complete" for the time being.  There are no immediate plans to add
+            new functionality to the core processor or its front-ends.  If you have a proposal for new functionality,
+            please create an <a href="https://gitlab.com/steve-perkins/ResumeFodder/issues">issue ticket</a> to discuss it.
+        </p>
+        <p class="lead text-muted">
+            If you find a bug in ResumeFodder, then GitLab is the preferred collaboration platform for merge requests,
+            but pull requests may be issued to the GitHub mirror also.  Either way, it is best to create an
+            <a href="https://gitlab.com/steve-perkins/ResumeFodder/issues">issue ticket</a> first before writing the
+            code change.
+        </p>
+        <p class="lead text-muted">
+            If you would like to author a new template for ResumeFodder, then this is VERY welcomed!  See the
+            <a href="docs/templates.html">"Creating Templates" section</a> of the documentation for more detail.  If
+            you are not comfortable adding the Go template dynamic tags yourself, then you are still encouraged to
+            submit a resume with static text in Microsoft Word 2003 XML format.
+        </p>
+        <p class="lead text-muted">
+            Note that ResumeFodder is made available under the MIT License.  By making any contribution, you acknowledge
+            that the MIT License will apply to it as well.
+        </p>
+    </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<hr/>
+<footer class="page-footer">
+
+    <!-- Copyright etc -->
+    <div class="small-print">
+        <div class="container">
+            <p>Copyright 2016 &copy; <a href="http://steveperkins.com">Steve Perkins</a></p>
+            <p>MIT License</p>
+        </div>
+    </div>
+
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery-1.11.3.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="js/jquery.easing.min.js"></script>
+
+<!-- Custom Javascript -->
+<script src="js/custom.js"></script>
+
+</body>
+
+</html>
