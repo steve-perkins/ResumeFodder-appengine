@@ -6,7 +6,7 @@ body {
 }
 
 a {
-    color: darkslategrey;
+    color: #eb3812;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;

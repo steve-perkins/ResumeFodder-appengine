@@ -60,7 +60,7 @@
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active">
+                <li>
                     <a href="generate.html">Use Online</a>
                 </li>
                 <li>
@@ -90,52 +90,8 @@
 <!-- Content -->
 <section class="page-content-top">
     <div class="container">
-        <h2 class="section-header">Use ResumeFodder Online</h2>
-        <h3 style="padding: 10px 0">Step 1: Initialize an empty JSON Resume file</h3>
-        <p>
-            <button onclick="javascript:window.location.href='init'">Download</button>
-        </p>
-        <hr/>
-        <h3 style="padding: 10px 0">Step 2: Fill the JSON Resume file with content</h3>
-        <p>
-            See the <a href="docs/jsonresume.html">"JSON Resume Format"</a> section of the documentation for detail on
-            the various fields.
-        </p>
-        <hr/>
-        <h3 style="padding: 10px 0">Step 3: Generate a Microsoft Word resume file</h3>
-        <form action="generate" method="post" enctype="multipart/form-data">
-            <p>
-                <label for="file">Upload a JSON Resume file:</label>
-                <input type="file" name="file" id="file">
-            </p>
-            <p>
-                <label>Choose a template:</label><br/>
-            </p>
-            <div class="row" style="text-align: center">
-                <div class="col-md-4">
-                    <input type="radio" name="template" value="standard" checked="checked"> Standard<br/>
-                    <img src="images/thumbnail-standard.png"/>
-                </div>
-                <div class="col-md-4">
-                    <input type="radio" name="template" value="iconic"> Iconic<br/>
-                    <img src="images/thumbnail-iconic.png"/>
-                </div>
-                <div class="col-md-4">
-                    <input type="radio" name="template" value="refined"> Refined<br/>
-                    <img src="images/thumbnail-refined.png"/>
-                </div>
-            </div><br/>
-            <p>
-                <button type="submit">Generate</button>
-            </p>
-            <p>
-                NOTE: Resumes are generated in Word 2003 XML format, which is not well-supported by LibreOffice
-                and other Word alternatives.  For information on converting these files to other formats, with or without
-                Word being installed on your computer, see the <a href="docs/formats.html">"File Formats"</a> section
-                of the documentation.
-            </p>
-        </form>
-    </div>
+        <h2 class="section-header">Error</h2>
+        <p class="lead text-muted" style="color: red">{{ .message }}</p>
     </div>
 </section>
 
