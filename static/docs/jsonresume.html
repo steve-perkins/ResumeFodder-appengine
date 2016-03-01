@@ -17,6 +17,17 @@
 
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
     <link href="../css/custom.css" rel="stylesheet">
+    <style>
+        <!--
+        .field {
+            font-weight: bold;
+        }
+        .extension {
+            color: red;
+            font-weight: bold;
+        }
+        -->
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,6 +38,7 @@
 
     <!-- Custom Fonts from Google -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 
     <!-- Google Analytics -->
     <script>
@@ -90,10 +102,181 @@
 <!-- Content -->
 <section class="page-content-top">
     <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="text-align: right">
+                Next: <a href="templates.html">Template Gallery</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="page-content">
+    <div class="container">
         <h2 class="section-header">The JSON Resume Format</h2>
-        <p class="lead text-muted">
+        <p>
+            Below is a sample JSON Resume file, annotated with explanations for each field.  Note that:<br/>
+        </p>
+        <ul>
+            <li>
+                Virtually all fields are optional.  If no value is supplied, then most templates will simply
+                omit that area of text.<br/><br/>
+            </li>
+            <li>
+                Fields <span class="extension">colored RED</span> are optional extensions that are particular to
+                ResumeFodder, and should be ignored by other JSON Resume processors.<br/><br/>
+            </li>
+            <li>
+                Empty fields with no notes are part of the standard JSON Resume spec, but are not currently used
+                by any ResumeFodder templates.
+            </li>
+        </ul>
+        <p style="font-family: 'Droid Sans Mono'">
+            {<br/>
+            &nbsp;&nbsp;&quot;<span class="field">basics&quot;:</span>&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">name&quot;:</span>&nbsp;&quot;Your first and last name&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">label&quot;:</span>&nbsp;&quot;&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">picture&quot;:</span>&nbsp;&quot;&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">email&quot;:</span>&nbsp;&quot;Your email address&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">phone&quot;:</span>&nbsp;&quot;A phone number, with any formatting you like.  E.g. (555) 555-5555.&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">degree&quot;:</span>&nbsp;&quot;&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">website&quot;:</span>&nbsp;&quot;Your website URL&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">summary&quot;:</span>&nbsp;&quot;A one-sentence to one-paragraph overview text.  Do not include any line-breaks.&quot;,<br/>
+                <span class="extension">
+                &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">highlights&quot;:</span>&nbsp;[<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Bullet-point list items that you would like to include along with (or instead of) a summary paragraph.&quot;<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+                </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">location&quot;:</span>&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">address&quot;:</span>&nbsp;&quot;Your street address or mailing address&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">postalCode&quot;:</span>&nbsp;&quot;Your postal code (ZIP in the U.S.)&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">city&quot;:</span>&nbsp;&quot;Your city&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">countryCode&quot;:</span>&nbsp;&quot;Your country (e.g. USA)&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">region&quot;:</span>&nbsp;&quot;Your region (state in the U.S.)&quot;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">profiles&quot;:</span>&nbsp;[<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">network&quot;:</span>&nbsp;&quot;A social media or other profile that you would like to include (e.g. LinkedIn, Twitter)&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">username&quot;:</span>&nbsp;&quot;Your username on this network&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">url&quot;:</span>&nbsp;&quot;A URL to your user profile page&quot;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;]<br/>
+            &nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;&quot;<span class="field">work&quot;:</span>&nbsp;[<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">company&quot;:</span>&nbsp;&quot;Your employer name&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">position&quot;:</span>&nbsp;&quot;Your job title&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">website&quot;:</span>&nbsp;&quot;The URL for the employer's website&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">startDate&quot;:</span>&nbsp;&quot;Your start date, in YYYY-MM-DD format&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">endDate&quot;:</span>&nbsp;&quot;Your end date, in YYY-MM-DD format (leave blank for a current position)&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">summary&quot;:</span>&nbsp;&quot;A one-sentence to one-paragraph summary of this employer or position&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">highlights&quot;:</span>&nbsp;[<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Bullet-point list items that you would like to include along with (or instead of) a summary paragraph.&quot;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
+                <span class="extension">
+                &nbsp;&nbsp;&quot;additionalWork&quot;:&nbsp;[<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;company&quot;:&nbsp;&quot;Job history that you would like to group separately (e.g. old jobs, academic positions, etc)&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;position&quot;:&nbsp;&quot;All fields under the section are the same as for 'work'&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;website&quot;:&nbsp;&quot;&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;startDate&quot;:&nbsp;&quot;&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;endDate&quot;:&nbsp;&quot;&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;summary&quot;:&nbsp;&quot;&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;highlights&quot;:&nbsp;[<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Templates typically omit highlights for 'additionalWork' positions&quot;<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                &nbsp;&nbsp;],<br/>
+                &nbsp;&nbsp;&quot;workLabel&quot;:&nbsp;&quot;Overrides the template label for the 'work' section (e.g. 'Recent Experience')&quot;,<br/>
+                &nbsp;&nbsp;&quot;additionalWorkLabel&quot;:&nbsp;&quot;Overrides the template label for the 'additionalWork' section (e.g. 'Prior Experience')&quot;,<br/>
+                </span>
+            &nbsp;&nbsp;&quot;<span class="field">education&quot;:</span>&nbsp;[<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">institution&quot;:</span>&nbsp;&quot;Your school name&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">area&quot;:</span>&nbsp;&quot;Your area of study or degree earned&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">studyType&quot;:</span>&nbsp;&quot;&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">startDate&quot;:</span>&nbsp;&quot;Your start date, in YYYY-MM-DD format&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">endDate&quot;:</span>&nbsp;&quot;Your completion date, in YYYY-MM-DD format&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">gpa&quot;:</span>&nbsp;&quot;&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">courses&quot;:</span>&nbsp;[<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
+            &nbsp;&nbsp;&quot;<span class="field">publications&quot;:</span>&nbsp;[<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">name&quot;:</span>&nbsp;&quot;Your publication title&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">publisher&quot;:</span>&nbsp;&quot;Publisher name&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">releaseDate&quot;:</span>&nbsp;&quot;Publication date, in YYYY-MM-DD format&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">website&quot;:</span>&nbsp;&quot;The website URL for this publisher or book&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">summary&quot;:</span>&nbsp;&quot;A one-sentence to one-paragraph overview of this publication&quot;,<br/>
+            <span class="extension">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;isbn&quot;:&nbsp;&quot;The ISBN of this publication&quot;<br/></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;],<br/>
+                <span class="extension">
+                &nbsp;&nbsp;&quot;additionalPublications&quot;:&nbsp;[<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;:&nbsp;&quot;Publications that you would like to group separately (e.g. editor rather than author, academic publications, etc)&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;publisher&quot;:&nbsp;&quot;All fields under this section are the same as for 'publications'&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;releaseDate&quot;:&nbsp;&quot;&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;website&quot;:&nbsp;&quot;&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;summary&quot;:&nbsp;&quot;&quot;,<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;isbn&quot;:&nbsp;&quot;&quot;<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                &nbsp;&nbsp;],<br/>
+                &nbsp;&nbsp;&quot;<span class="field">publicationsLabel&quot;:</span>&nbsp;&quot;Overrides the template label for the 'publications' section (e.g. 'Publications (Author)')&quot;,<br/>
+                &nbsp;&nbsp;&quot;<span class="field">additionalPublicationsLabel&quot;:</span>&nbsp;&quot;Overrides the template label for the 'additionalPublications' section (e.g. 'Publications (Technical Reviewer)')&quot;,<br/>
+                </span>
+            &nbsp;&nbsp;&quot;<span class="field">skills&quot;:</span>&nbsp;[<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">name&quot;:</span>&nbsp;&quot;A category of job skills (e.g. 'Programming Languages')&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">level&quot;:</span>&nbsp;&quot;&quot;,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="field">keywords&quot;:</span>&nbsp;[<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Keywords under this category (e.g. 'Java', 'C++', etc)&quot;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;]<br/>
+            }
         </p>
     </div>
+</section>
+
+<!-- Content -->
+<section class="page-content">
+    <div class="container">
+        <h2 class="section-header">XML Support</h2>
+        <p>
+            The command-line front-end also supports an XML representation of the JSON Resume layout, including
+            functionality for converting back and forth between the two representations.
+        </p>
+        <p>
+            Early prototypes of ResumeFodder were written with the goal of supporting line-break Markdown formatting
+            (e.g. bullet-point lists) within data text fields.  So XML support was added from the beginning, since
+            XML is more visually friendly toward line-breaks within text field values.
+        </p>
+        <p>
+            Mixing style with data proved to be technically challenging, and perhaps a bit misguided conceptually.
+            Soon, the original use cases for Markdown were satisfied by optional extension fields instead.  There are
+            no current plans to move forward with embedded formatting within data fields.
+        </p>
+        <p>
+            XML support is not officially "deprecated".  It's there in the command-line front-end if you wish to use
+            it.  However, JSON format is generally recommended, and is the only format supported by the online
+            front-end.
+        </p>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="text-align: right">
+                Next: <a href="templates.html">Template Gallery</a>
+            </div>
+        </div>
     </div>
 </section>
 
