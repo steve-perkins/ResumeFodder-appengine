@@ -119,23 +119,44 @@
         </ul>
         <p>
             However, you can probably figure out most of what you need by simply reviewing the existing template files
-            under the templates subdirectory.
+            in the <a href="https://gitlab.com/steve-perkins/ResumeFodder-templates">ResumeFodder-templates</a> git
+            repository.
         </p>
         <p>
-            If you have no experience (or at least interest) in Go, then creating new templates for ResumeFodder may be a daunting task. Otherwise, the process is fairly straightforward:
+            If you have no experience (or at least interest) in Go, then creating new templates for ResumeFodder may
+            be a daunting task. Otherwise, the process is fairly straightforward:
         </p>
         <ol>
             <li>Use Microsoft Word (or LibreOffice) to create a resume with whatever style you like.<br/><br/></li>
             <li>
-                Specify the "Word 2003 XML Document" file type when saving the file. It's very important to be precise about this, as there are multiple different Word file options with "2003" or "XML" in their name.<br/><br/>
+                Specify the "Word 2003 XML Document" file type when saving the file. It's very important to be precise
+                about this, as there are multiple different Word file options with "2003" or "XML" in their
+                name.<br/><br/>
             </li>
             <li>
-                Open the file in a text editor. For all dynamic fields, replace your sample text with Go template tags that reference the appropriate JSON Resume schema fields. Resources to help you are:<br/><br/>
+                Open the file in a text editor. For all dynamic fields, replace your sample text with Go template tags
+                that reference the appropriate JSON Resume schema fields. Resources to help you are:<br/><br/>
                 <ul>
-                    <li>Existing template files, under the templates subdirectory.<br/><br/></li>
-                    <li>The documentation for Go templates.<br/><br/></li>
-                    <li>The data schema structures in the data/data.go file.<br/><br/></li>
-                    <li>Save your new template file under the templates subdirectory.<br/><br/></li>
+                    <li>
+                        Existing template files, in the
+                        <a href="https://gitlab.com/steve-perkins/ResumeFodder-templates">ResumeFodder-templates</a>
+                        repository.<br/><br/>
+                    </li>
+                    <li>
+                        The <a href="https://golang.org/pkg/text/template/">documentation</a> for Go templates.<br/><br/>
+                    </li>
+                    <li>
+                        The data schema structures in the
+                        <a href="https://gitlab.com/steve-perkins/ResumeFodder/blob/master/data/data.go"><code>data/data.go</code></a>
+                        source code file.<br/><br/>
+                    </li>
+                    <li>
+                        Save your new template file under the <code>templates</code> subdirectory of your local
+                        ResumeFodder-cli installation.  Optionally, make a fork of
+                        <a href="https://gitlab.com/steve-perkins/ResumeFodder-templates">ResumeFodder-templates</a>
+                        and <a href="../source.html#contributing">issue a merge request or pull request</a>.
+                        <br/><br/>
+                    </li>
                 </ul>
             </li>
         </ol>

@@ -58,7 +58,7 @@ func generateHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Load the selected template
 	templateParam := r.Form.Get("template")
-	if templateParam != "standard" && templateParam != "iconic" && templateParam != "refined" {
+	if templateParam != "standard" && templateParam != "professional" && templateParam != "iconic" && templateParam != "refined" {
 		errorHandler(w, r, fmt.Sprintf("An unrecognized template was selected: %s\n", templateParam))
 		return
 	}
